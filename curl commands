@@ -1,0 +1,40 @@
+Sure, here are the equivalent `curl` commands for interacting with the Flask application:
+
+1. **Add a transaction**:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+    "sender": "Your_Address",
+    "recipient": "Recipient_Address",
+    "amount": 5,
+    "data": "Your_Transaction_Data"
+}' "http://172.16.21.135:5000/transactions/new"
+```
+
+2. **Mine a new block**:
+```bash
+curl -X GET "http://172.16.21.135:5000/mine"
+```
+
+3. **Get the full chain**:
+```bash
+curl -X GET "http://172.16.21.135:5000/chain"
+```
+
+4. **Register nodes**:
+```bash
+curl -X POST -H "Content-Type: application/json" -d '{
+    "nodes": ["http://node1_address:port", "http://node2_address:port", ...]
+}' "http://172.16.21.135:5000/nodes/register"
+```
+
+5. **Get nodes**:
+```bash
+curl -X GET "http://172.16.21.135:5000/nodes"
+```
+
+6. **Resolve conflicts (Consensus)**:
+```bash
+curl -X GET "http://172.16.21.135:5000/nodes/resolve"
+```
+
+Please replace `"Your_Address"`, `"Recipient_Address"`, `"Your_Transaction_Data"`, `"node1_address:port"`, `"node2_address:port"`, etc., with the appropriate values in the `curl` commands. Also, ensure that the IP address and port are correct for your Flask application.
